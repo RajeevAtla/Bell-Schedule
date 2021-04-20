@@ -1,0 +1,69 @@
+\ProvidesPackage{rajeev}
+
+\RequirePackage{geometry}
+\RequirePackage{mathtools}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{titlesec}
+\RequirePackage{amsfonts}
+\RequirePackage{bm}
+\RequirePackage{lastpage}
+\RequirePackage{fancyhdr}
+
+\DeclareOption{sans}{
+    \renewcommand{\familydefault}{\sfdefault}
+    \renewcommand{\sfdefault}{xcmss}
+}
+\DeclareOption{landscape}{
+    \geometry{letterpaper, landscape, margin = 1in}
+}
+\DeclareOption{mono}{
+    \renewcommand{\familydefault}{\ttdefault}
+}
+\DeclareOption{stdmargin}{
+    \geometry{margin = 1in, letterpaper, portrait}
+}
+\DeclareOption{noindent}{
+    \setlength{\parindent}{0cm}
+}
+\DeclareOption{stdindent}{
+    \setlength{\parindent}{0.5in}
+}
+
+
+
+\ExecuteOptions{stdmargin, stdindent}
+\ProcessOptions\relax
+
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+
+%sets of numbers
+\newcommand{\CC}{\mathbb C}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+
+%real/complex operators
+\newcommand{\Real}{\mathfrak{Re}}
+\newcommand{\Img}{\mathfrak{Im}}
+
+
+%delimiter stuff
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\pars}[1]{\left ( #1 \right)}
+\newcommand{\brak}[1]{\left [ #1 \right]}
+\newcommand{\set}[1]{ \left \{ #1 \right \} }
+\newcommand{\vect}[1]{\left \langle #1 \rangle \right}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\color{red}\S \thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\Large\bfseries}{\color{olive}\S \thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\Large\bfseries}{\color{blue}\S \thesubsubsection}{0.5em}{}
+
+\everymath{\displaystyle}
+
+\endinput
